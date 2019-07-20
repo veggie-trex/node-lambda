@@ -48,7 +48,7 @@ functions:
           path: ${self:service}/hello/{id}
           method: get
           cors: true
-  getPatientRecords:
+  getPatientRecordsHandler:
     handler: GetPatientRecordsHandler.getPatientRecordsHandler
     name: ${self:provider.stage}-${self:service}-getPatientRecords
     events: 
@@ -56,9 +56,9 @@ functions:
           path: ${self:service}/patients/{patientId}/records
           method: get
           cors: true
-  getRecordById:
-    handler: GetRecordByIdHandler.getRecordByIdHandler
-    name: ${self:provider.stage}-${self:service}-getRecordById
+  getPatientRecordByIdHandler:
+    handler: GetPatientRecordByIdHandler.getPatientRecordByIdHandler
+    name: ${self:provider.stage}-${self:service}-getPatientRecordByIdHandler
     events: 
       - http:
           path: ${self:service}/patients/{patientId}/records/{recordId}
@@ -72,11 +72,19 @@ functions:
           path: ${self:service}/patients/{patientId}
           method: get
           cors: true
-  # createRecordHandler:
-  #   handler: CreateRecordHandler.createRecordHandler
-  #   name: ${self:provider.stage}-${self:service}-getPatientInformationHandler
-  #   events: 
-  #     - http:
-  #         path: ${self:service}/records
-  #         method: post
-  #         cors: true
+  createRecordHandler:
+    handler: CreateRecordHandler.createRecordHandler
+    name: ${self:provider.stage}-${self:service}-createRecordHandler
+    events: 
+      - http:
+          path: ${self:service}/records
+          method: post
+          cors: true
+  searchPatientHandler:
+    handler: SearchPatientHandler.searchPatientHandler
+    name: ${self:provider.stage}-${self:service}-searchPatientHandler
+    events: 
+      - http:
+          path: ${self:service}/patients/search
+          method: post
+          cors: true

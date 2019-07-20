@@ -1,4 +1,4 @@
-import { getRecordByIdHandler } from '../src/GetRecordByIdHandler';
+import { getRecordByIdHandler } from '../src/GetPatientRecordByIdHandler';
 describe('Test GetRecordByIdHandler', () => {
     test('01: getRecordByIdHandler', () => {
         const event = {

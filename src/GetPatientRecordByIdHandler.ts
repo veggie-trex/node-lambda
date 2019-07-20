@@ -4,7 +4,7 @@ interface IResponseObject {
   headers: Object;
 }
 
-export function getRecordByIdHandler(event: any, _context: any, callback: (err: any, res: any) => any) {
+export function getPatientRecordByIdHandler(event: any, _context: any, callback: (err: any, res: any) => any) {
 const patientId = event.pathParameters.patientId;
 const recordId = event.pathParameters.recordId;
 
