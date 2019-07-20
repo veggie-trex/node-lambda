@@ -16,7 +16,7 @@ export function searchPatientHandler(event: any, _context: any, callback: (err: 
         blockChainAccount: "1032369367"
     }];
     const body = JSON.parse(event.body);
-    const filteredPatients = patients.filter((item) => item.id === body.id)
+    const filteredPatients = patients.filter((item) => item.id === body.id);
     callback(null, createResponseObject(200, JSON.stringify(filteredPatients)));
 }
 

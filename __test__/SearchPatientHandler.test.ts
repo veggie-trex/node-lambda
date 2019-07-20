@@ -7,9 +7,8 @@ describe('', () => {
         };
 
         const patientOne = {
-            body: JSON.stringify({id: "123"});
+            body: JSON.stringify({id: "123"})
         };
-        
     
         searchPatientHandler(patientOne, {}, callBack);
 
