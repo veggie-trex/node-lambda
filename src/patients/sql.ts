@@ -8,6 +8,6 @@ export function getPatientById(patientId: string) {
     return query;
 }
 
-export function createPatient (patient: {name: string}) {
+export function createPatient(patient: { name: string }) {
     return createElementSql(sqlTables.patients, patient);
-  }
+}
