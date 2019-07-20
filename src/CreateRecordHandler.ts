@@ -7,7 +7,7 @@ interface IResponseObject {
 export function createRecordHandler(event: any, _context: any, callback: (err: any, res: any) => any) {
   console.log('Record: ', JSON.stringify(event.body));
   const res = event.body;
-  callback(null, createResponseObject(200, JSON.stringify(res)));
+  callback(null, createResponseObject(200, res));
 }
 
 function createResponseObject(code: number, body: Object): IResponseObject {
