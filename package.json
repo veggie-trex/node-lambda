@@ -9,7 +9,8 @@
   },
   "scripts": {
     "clean": "rimraf coverage build tmp dist",
-    "build": "npm run clean & tsc -p tsconfig.release.json & cp -R serverless.yml ./dist/src/ & cp -R package.json ./dist/src/ & cd dist/src/ & npm install --production",
+    "build": "npm run clean; tsc -p tsconfig.release.json; cp -R serverless.yml ./dist/src/; cp -R package.json ./dist/src/; cd dist/src/; npm install --production",
+    "winBuild": "npm run clean & tsc -p tsconfig.release.json & cp -R serverless.yml ./dist/src/ & cp -R package.json ./dist/src/ & cd dist/src/ & npm install --production",
     "dev": "tsc --watch & nodemon dist",
     "devwin": "concurrently --kill-others \"tsc --watch\" \"nodemon dist\"",
     "lint": "eslint src --ext ts",

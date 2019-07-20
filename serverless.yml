@@ -6,6 +6,7 @@ provider:
   runtime: nodejs8.10
   stage: ${env:${self:custom.APP_ENV}_API_STAGE}
   profile: ${env:SERVERLESS_PROFILE}
+  region: ${env:${self:custom.APP_ENV}_API_AWS_REGION}
   environment:
     AWS_API_ACCESS_KEY: ${env:${self:custom.APP_ENV}_API_AWS_ACCESS_KEY}
     AWS_API_SECRET_KEY: ${env:${self:custom.APP_ENV}_API_AWS_SECRET_KEY}
