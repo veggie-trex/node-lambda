@@ -5,9 +5,12 @@ interface IResponseObject {
 }
 
 export function getRecordByIdHandler(event: any, _context: any, callback: (err: any, res: any) => any) {
+const patientId = event.pathParameters.patientId;
+const recordId = event.pathParameters.recordId;
+
 const res = {
-	doctorId: "doctorId-123",
-	patientId: "patientId-123",
+	doctorId: recordId,
+	patientId: patientId,
 	immunizationType: "IM-MS-0001",
 	immunizationDate: 1563636169,
 	nextImmunizationDate: 1593820800
