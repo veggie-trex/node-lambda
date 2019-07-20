@@ -10,3 +10,4 @@ codeship.aes
 coverage
 *.bat
 .serverless
+src/\.DS_Store
