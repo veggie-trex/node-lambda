@@ -72,11 +72,11 @@ functions:
           path: ${self:service}/patients/{patientId}
           method: get
           cors: true
-  createRecordHandler:
-    handler: CreateRecordHandler.createRecordHandler
-    name: ${self:provider.stage}-${self:service}-getPatientInformationHandler
-    events: 
-      - http:
-          path: ${self:service}/records
-          method: post
-          cors: true
+  # createRecordHandler:
+  #   handler: CreateRecordHandler.createRecordHandler
+  #   name: ${self:provider.stage}-${self:service}-getPatientInformationHandler
+  #   events: 
+  #     - http:
+  #         path: ${self:service}/records
+  #         method: post
+  #         cors: true

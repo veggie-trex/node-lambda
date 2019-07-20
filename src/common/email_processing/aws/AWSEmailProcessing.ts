@@ -1,9 +1,7 @@
 import { EmailProcessor } from '../EmailProcessor';
 import { Email } from '../models';
-import { injectable } from 'inversify';
 import { serviceConnection } from './config';
 
-@injectable()
 export class AWSEmailProcessing implements EmailProcessor {
     sendEmail(email: Email): Promise<boolean> {
         const params = {
