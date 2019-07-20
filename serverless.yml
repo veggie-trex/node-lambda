@@ -48,14 +48,6 @@ functions:
           path: ${self:service}/hello/{id}
           method: get
           cors: true
-  getPatient:
-    handler: GetPatientHandler.getPatientHandler
-    name: ${self:provider.stage}-${self:service}-getPatient
-    events: 
-      - http:
-          path: ${self:service}/patients/{patientId}
-          method: get
-          cors: true
   getPatientRecords:
     handler: GetPatientRecordsHandler.getPatientRecordsHandler
     name: ${self:provider.stage}-${self:service}-getPatientRecords

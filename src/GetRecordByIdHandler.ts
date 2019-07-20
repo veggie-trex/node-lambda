@@ -5,13 +5,13 @@ interface IResponseObject {
 }
 
 export function getRecordByIdHandler(event: any, _context: any, callback: (err: any, res: any) => any) {
-const res = [{
+const res = {
 	doctorId: "doctorId-123",
 	patientId: "patientId-123",
 	immunizationType: "IM-MS-0001",
 	immunizationDate: 1563636169,
 	nextImmunizationDate: 1593820800
-}]
+}
 callback(null, createResponseObject(200, JSON.stringify(res)));
 }
 
