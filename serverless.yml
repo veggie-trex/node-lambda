@@ -96,3 +96,11 @@ functions:
           path: ${self:service}/patients/search
           method: post
           cors: true
+  testBC:
+    handler: TestBCHandler.testBCHandler
+    name: ${self:provider.stage}-${self:service}-testBCHandler
+    events: 
+      - http:
+          path: ${self:service}/testBC
+          method: get
+          cors: true
