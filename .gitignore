@@ -1,0 +1,12 @@
+node_modules
+dist
+npm-debug.log
+codeship.aes
+aws_creds
+build.json
+aws-creds
+build.json
+codeship.aes
+coverage
+*.bat
+.serverless

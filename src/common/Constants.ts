@@ -1,0 +1,1 @@
+export const EXCHANGE_RATE_MILES_AND_MILES = '0.00062137';

@@ -1,0 +1,50 @@
+service: veggie-t-rex
+custom:
+  APP_ENV: ${env:SERVERLESS_APP}
+provider:
+  name: aws
+  runtime: nodejs8.10
+  stage: ${env:${self:custom.APP_ENV}_API_STAGE}
+  profile: ${env:SERVERLESS_PROFILE}
+  environment:
+    AWS_API_ACCESS_KEY: ${env:${self:custom.APP_ENV}_API_AWS_ACCESS_KEY}
+    AWS_API_SECRET_KEY: ${env:${self:custom.APP_ENV}_API_AWS_SECRET_KEY}
+    AWS_API_REGION: ${env:${self:custom.APP_ENV}_API_AWS_REGION}
+    APP: ${env:SERVERLESS_APP}
+    STAGE: ${env:${self:custom.APP_ENV}_API_STAGE}
+  iamRoleStatements:
+    - Effect: "Allow"
+      Action:
+        - "lambda:InvokeFunction"
+      Resource:
+        - "*"
+    - Effect: "Allow"
+      Action:
+        - "SNS:Publish"
+      Resource:
+        - "*"
+    - Effect: "Allow"
+      Action:
+        - "s3:*"
+      Resource:
+        - "*" 
+    - Effect: "Allow"
+      Action:
+        - "dynamodb:*"
+      Resource:
+        - "*"
+package:
+  individually: true
+  excludeDevDependencies: true
+  exclude: 
+    - 'src/**'
+    - 'dist/**'
+functions:
+  uploadFilesPatient:
+    handler: HelloWorldHandler.helloWorldHandler
+    name: ${self:provider.stage}-${self:service}-helloWorldHandler
+    events: 
+      - http:
+          path: ${self:service}/hello/{id}
+          method: get
+          cors: true

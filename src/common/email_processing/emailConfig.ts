@@ -1,0 +1,2 @@
+export const MANAGEMENT_EMAIL_FROM = process.env.MANAGEMENT_EMAIL_FROM;
+export const MANAGEMENT_EMAIL_TO = process.env.MANAGEMENT_EMAIL_TO;
