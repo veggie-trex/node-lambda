@@ -72,3 +72,11 @@ functions:
           path: ${self:service}/patients/{patientId}/records/{recordId}
           method: get
           cors: true
+  getPatientInformationHandler:
+    handler: GetPatientInformationHandler.getPatientInformationHandler
+    name: ${self:provider.stage}-${self:service}-getPatientInformationHandler
+    events: 
+      - http:
+          path: ${self:service}/patients/{patientId}
+          method: get
+          cors: true
