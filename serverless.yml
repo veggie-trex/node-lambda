@@ -69,6 +69,6 @@ functions:
     name: ${self:provider.stage}-${self:service}-getRecordById
     events: 
       - http:
-          path: ${self:service}/records/{recordId}
+          path: ${self:service}/patients/{patientId}/records/{recordId}
           method: get
           cors: true
