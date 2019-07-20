@@ -4,7 +4,7 @@ interface IResponseObject {
       headers: Object;
   }
 
-  export function patientGetInformationHandler(event: any, _context: any, callback: (err: any, res: any) => any) {
+  export function getPatientInformationHandler(event: any, _context: any, callback: (err: any, res: any) => any) {
     const res = {
       "id": "EFA7F01F-517F-433B-9FC00FC447E65F37",
       "patient": {
