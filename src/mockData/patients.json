@@ -1,4 +1,4 @@
-export const patients = [{
+[{
     "patient": {
         "id": "87ABAB1D-4262-431B-B569A0FCB4776426",
         "name": "Testing Patient",

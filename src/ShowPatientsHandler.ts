@@ -1,4 +1,5 @@
-import { patients } from "../src/mockData/patients";
+import patients from "../src/mockData/patients.json";
+
 interface IResponseObject {
     statusCode: number;
     body: Object;
