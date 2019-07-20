@@ -64,6 +64,14 @@ functions:
           path: ${self:service}/patients/{patientId}/records/{recordId}
           method: get
           cors: true
+  getAllPatientsHandler:
+    handler: ShowPatientsHandler.showPatientsHandler
+    name: ${self:provider.stage}-${self:service}-showPatientsHandler
+    events: 
+      - http:
+          path: ${self:service}/patients
+          method: get
+          cors: true
   getPatientInformationHandler:
     handler: GetPatientInformationHandler.getPatientInformationHandler
     name: ${self:provider.stage}-${self:service}-getPatientInformationHandler
@@ -87,12 +95,4 @@ functions:
       - http:
           path: ${self:service}/patients/search
           method: post
-          cors: true
-  showPatientsHandler:
-    handler: ShowPatientsHandler.showPatientsHandler
-    name: ${self:provider.stage}-${self:service}-showPatientsHandler
-    events: 
-      - http:
-          path: ${self:service}/patients
-          method: get
           cors: true
