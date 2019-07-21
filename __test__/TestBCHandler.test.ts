@@ -4,7 +4,7 @@ describe('', () => {
     test('testBC', () => {
     	const event = {
             body: JSON.stringify({
-                "address": "0xA36c0e3C4875D9A4640F624c051a5E077B697E0f"
+                "address": "0x36de2bee3ee97fd8f2717cd8d1ebab1f317dc417"
             })
         }
 

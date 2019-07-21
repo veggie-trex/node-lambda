@@ -10,7 +10,7 @@ describe('', () => {
         const event = {
             body: JSON.stringify({
                 senderAddress: "0xA36c0e3C4875D9A4640F624c051a5E077B697E0f",
-                recipientAddress: "0xA36c0e3C4875D9A4640F624c051a5E077B697E0f",
+                recipientAddress: "0x36de2bee3ee97fd8f2717cd8d1ebab1f317dc417",
                 record: "VGVzdGluZyBUZXN0aW5nIEJPT00gQk9PTSBCT09N"
             })
         }
