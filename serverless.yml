@@ -11,7 +11,7 @@ provider:
     securityGroupIds:
       - sg-088367e646899999d
       - sg-0a3c1e5c1620e90e4
-    subnetdIds:
+    subnetIds:
       - subnet-0d27651c4681e4e0d
       - subnet-039b7250f768f97bf
       - subnet-0fe2ed0824929e81d
