@@ -7,6 +7,14 @@ provider:
   stage: ${env:${self:custom.APP_ENV}_API_STAGE}
   profile: ${env:SERVERLESS_PROFILE}
   region: ${env:${self:custom.APP_ENV}_API_AWS_REGION}
+  vpc:
+    securityGroupIds:
+      - sg-088367e646899999d
+      - sg-0a3c1e5c1620e90e4
+    subnetdIds:
+      - subnet-0d27651c4681e4e0d
+      - subnet-039b7250f768f97bf
+      - subnet-0fe2ed0824929e81d
   environment:
     AWS_API_ACCESS_KEY: ${env:${self:custom.APP_ENV}_API_AWS_ACCESS_KEY}
     AWS_API_SECRET_KEY: ${env:${self:custom.APP_ENV}_API_AWS_SECRET_KEY}
@@ -101,14 +109,6 @@ functions:
           cors: true
   getBCTransactionsHandler:
     handler: GetBCTransactionsHandler.getBCTransactionsHandler
-    vpc:
-    securityGroupIds:
-      - sg-088367e646899999d
-      - sg-0a3c1e5c1620e90e4
-    subnetdIds:
-      - subnet-0d27651c4681e4e0d
-      - subnet-039b7250f768f97bf
-      - subnet-0fe2ed0824929e81d
     name: ${self:provider.stage}-${self:service}-getBCTransactionsHandler
     events: 
       - http:
@@ -117,14 +117,6 @@ functions:
           cors: true
   getBCTransactionParamsHandler:
     handler: GetBCTransactionParamsHandler.getBCTransactionParamsHandler
-    vpc:
-    securityGroupIds:
-      - sg-088367e646899999d
-      - sg-0a3c1e5c1620e90e4
-    subnetdIds:
-      - subnet-0d27651c4681e4e0d
-      - subnet-039b7250f768f97bf
-      - subnet-0fe2ed0824929e81d
     name: ${self:provider.stage}-${self:service}-getBCTransactionParamsHandler
     events: 
       - http:
@@ -133,17 +125,17 @@ functions:
           cors: true
   sendBCTransactionHandler:
     handler: SendBCTransactionHandler.sendBCTransactionHandler
-    vpc:
-    securityGroupIds:
-      - sg-088367e646899999d
-      - sg-0a3c1e5c1620e90e4
-    subnetdIds:
-      - subnet-0d27651c4681e4e0d
-      - subnet-039b7250f768f97bf
-      - subnet-0fe2ed0824929e81d
     name: ${self:provider.stage}-${self:service}-sendBCTransactionHandler
     events: 
       - http:
           path: ${self:service}/sendTransaction
+          method: post
+          cors: true
+  validateTransactionHandler:
+    handler: ValidateTransactionHandler.validateTransactionHandler
+    name: ${self:provider.stage}-${self:service}-validateTransactionHandler
+    events: 
+      - http:
+          path: ${self:service}/validateTransaction
           method: post
           cors: true
