@@ -13,6 +13,7 @@ provider:
     AWS_API_REGION: ${env:${self:custom.APP_ENV}_API_AWS_REGION}
     APP: ${env:SERVERLESS_APP}
     STAGE: ${env:${self:custom.APP_ENV}_API_STAGE}
+    NLB_URL: ${env:NLB_URL}
   iamRoleStatements:
     - Effect: "Allow"
       Action:
