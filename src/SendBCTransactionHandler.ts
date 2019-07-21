@@ -26,8 +26,7 @@ interface IResponseObject {
     try{
         txnHash = await sendRawTransactionPromise(signedTransaction, web3);
     } catch(e) {
-        console.log("Unable to send transaction");
-        return;
+         throw(e);
     }
     if (txnHash) {
         return { "transactionHash": txnHash };
