@@ -7,7 +7,7 @@ interface IResponseObject {
       headers: Object;
   }
 
-  export async function testBCHandler(event: any, _context: any, callback: (err: any, res: any) => any) {
+  export async function getBCTransactionsHandler(event: any, _context: any, callback: (err: any, res: any) => any) {
     process.chdir('/tmp');
 
     // 1. Get Required Input Params & Validate

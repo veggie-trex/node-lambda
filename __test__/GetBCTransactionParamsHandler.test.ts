@@ -1,7 +1,7 @@
-import { getBCDataHandler } from "../src/GetBCDataHandler";
+import { getBCTransactionParamsHandler } from "../src/GetBCTransactionParamsHandler";
 
 describe('', () => {
-    test('getBCData', (done) => {
+    test('getBCTransactionParams', (done) => {
         jasmine.DEFAULT_TIMEOUT_INTERVAL = 5000000;
         const callBack = (arg1, arg2) => {
             console.log('arg2', arg2);
@@ -14,6 +14,6 @@ describe('', () => {
                 record: "VGVzdGluZyBUZXN0aW5nIEJPT00gQk9PTSBCT09N"
             })
         }
-        getBCDataHandler(event, {}, callBack);
+        getBCTransactionParamsHandler(event, {}, callBack);
     })
 });

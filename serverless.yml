@@ -99,8 +99,8 @@ functions:
           path: ${self:service}/patients/search
           method: post
           cors: true
-  testBCHandler:
-    handler: TestBCHandler.testBCHandler
+  getBCTransactionsHandler:
+    handler: GetBCTransactionsHandler.getBCTransactionsHandler
     vpc:
     securityGroupIds:
       - sg-088367e646899999d
@@ -109,9 +109,41 @@ functions:
       - subnet-0d27651c4681e4e0d
       - subnet-039b7250f768f97bf
       - subnet-0fe2ed0824929e81d
-    name: ${self:provider.stage}-${self:service}-testBCHandler
+    name: ${self:provider.stage}-${self:service}-getBCTransactionsHandler
     events: 
       - http:
-          path: ${self:service}/testBCHandler
+          path: ${self:service}/getTransactions
+          method: post
+          cors: true
+  getBCTransactionParamsHandler:
+    handler: GetBCTransactionParamsHandler.getBCTransactionParamsHandler
+    vpc:
+    securityGroupIds:
+      - sg-088367e646899999d
+      - sg-0a3c1e5c1620e90e4
+    subnetdIds:
+      - subnet-0d27651c4681e4e0d
+      - subnet-039b7250f768f97bf
+      - subnet-0fe2ed0824929e81d
+    name: ${self:provider.stage}-${self:service}-getBCTransactionParamsHandler
+    events: 
+      - http:
+          path: ${self:service}/getTransactionParams
+          method: post
+          cors: true
+  sendBCTransactionHandler:
+    handler: SendBCTransactionHandler.sendBCTransactionHandler
+    vpc:
+    securityGroupIds:
+      - sg-088367e646899999d
+      - sg-0a3c1e5c1620e90e4
+    subnetdIds:
+      - subnet-0d27651c4681e4e0d
+      - subnet-039b7250f768f97bf
+      - subnet-0fe2ed0824929e81d
+    name: ${self:provider.stage}-${self:service}-sendBCTransactionHandler
+    events: 
+      - http:
+          path: ${self:service}/sendTransaction
           method: post
           cors: true

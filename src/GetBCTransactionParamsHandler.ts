@@ -7,7 +7,7 @@ interface IResponseObject {
       headers: Object;
   }
 
-  export async function getBCDataHandler(event: any, _context: any, callback: (err: any, res: any) => any) {
+  export async function getBCTransactionParamsHandler(event: any, _context: any, callback: (err: any, res: any) => any) {
     // process.chdir('/tmp');
 
     const params = JSON.parse(event.body);
