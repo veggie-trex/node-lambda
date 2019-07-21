@@ -54,6 +54,7 @@ functions:
   uploadFilesPatient:
     handler: HelloWorldHandler.helloWorldHandler
     name: ${self:provider.stage}-${self:service}-helloWorldHandler
+    timeout: 300
     events: 
       - http:
           path: ${self:service}/hello/{id}
@@ -62,6 +63,7 @@ functions:
   getPatientRecordsHandler:
     handler: GetPatientRecordsHandler.getPatientRecordsHandler
     name: ${self:provider.stage}-${self:service}-getPatientRecords
+    timeout: 300
     events: 
       - http:
           path: ${self:service}/patients/{patientId}/records
@@ -70,6 +72,7 @@ functions:
   getPatientRecordByIdHandler:
     handler: GetPatientRecordByIdHandler.getPatientRecordByIdHandler
     name: ${self:provider.stage}-${self:service}-getPatientRecordByIdHandler
+    timeout: 300
     events: 
       - http:
           path: ${self:service}/patients/{patientId}/records/{recordId}
@@ -78,6 +81,7 @@ functions:
   getAllPatientsHandler:
     handler: ShowPatientsHandler.showPatientsHandler
     name: ${self:provider.stage}-${self:service}-showPatientsHandler
+    timeout: 300
     events: 
       - http:
           path: ${self:service}/patients
@@ -86,6 +90,7 @@ functions:
   getPatientInformationHandler:
     handler: GetPatientInformationHandler.getPatientInformationHandler
     name: ${self:provider.stage}-${self:service}-getPatientInformationHandler
+    timeout: 300
     events: 
       - http:
           path: ${self:service}/patients/{patientId}
@@ -94,6 +99,7 @@ functions:
   createRecordHandler:
     handler: CreateRecordHandler.createRecordHandler
     name: ${self:provider.stage}-${self:service}-createRecordHandler
+    timeout: 300
     events: 
       - http:
           path: ${self:service}/records
@@ -102,6 +108,7 @@ functions:
   searchPatientHandler:
     handler: SearchPatientHandler.searchPatientHandler
     name: ${self:provider.stage}-${self:service}-searchPatientHandler
+    timeout: 300
     events: 
       - http:
           path: ${self:service}/patients/search
@@ -110,6 +117,7 @@ functions:
   getBCTransactionsHandler:
     handler: GetBCTransactionsHandler.getBCTransactionsHandler
     name: ${self:provider.stage}-${self:service}-getBCTransactionsHandler
+    timeout: 300
     events: 
       - http:
           path: ${self:service}/getTransactions
@@ -118,6 +126,7 @@ functions:
   getBCTransactionParamsHandler:
     handler: GetBCTransactionParamsHandler.getBCTransactionParamsHandler
     name: ${self:provider.stage}-${self:service}-getBCTransactionParamsHandler
+    timeout: 300
     events: 
       - http:
           path: ${self:service}/getTransactionParams
@@ -126,6 +135,7 @@ functions:
   sendBCTransactionHandler:
     handler: SendBCTransactionHandler.sendBCTransactionHandler
     name: ${self:provider.stage}-${self:service}-sendBCTransactionHandler
+    timeout: 300
     events: 
       - http:
           path: ${self:service}/sendTransaction
@@ -134,6 +144,7 @@ functions:
   validateTransactionHandler:
     handler: ValidateTransactionHandler.validateTransactionHandler
     name: ${self:provider.stage}-${self:service}-validateTransactionHandler
+    timeout: 300
     events: 
       - http:
           path: ${self:service}/validateTransaction

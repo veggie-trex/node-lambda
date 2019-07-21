@@ -12,7 +12,8 @@ interface IResponseObject {
         const result = await sendTransaction(signedTransaction);
         callback(null, createResponseObject(200, JSON.stringify(result)));
      } catch (error) {
-        callback(null, createResponseObject(500, JSON.stringify(error)));
+        console.log('error is: ', error);
+        callback(null, createResponseObject(500, JSON.stringify({'error': error.message})));
      }
   }
 
@@ -26,7 +27,8 @@ interface IResponseObject {
     try{
         txnHash = await sendRawTransactionPromise(signedTransaction, web3);
     } catch(e) {
-         throw(e);
+        console.log('e is:', e);
+        throw(e);
     }
     if (txnHash) {
         return { "transactionHash": txnHash };

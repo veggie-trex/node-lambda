@@ -1,4 +1,5 @@
 const Web3 = require('web3');
+var web3;
 
 interface IResponseObject {
       statusCode: number;
@@ -21,12 +22,17 @@ interface IResponseObject {
         callback(null, createResponseObject(400, 'Invalid request'));
         return;
     }
-
+    console.log('sender', senderAddress);
+    console.log('recipientAddress', recipientAddress);
+    console.log('record', record);
      // Establish Web3 connection
     const nodeUrl = process.env.NLB_URL;
     const contractAddress = process.env.CONTRACT_ADDRESS;
-    const web3 = new Web3(new Web3.providers.HttpProvider(nodeUrl));
-
+    web3 = new Web3(new Web3.providers.HttpProvider(nodeUrl));
+    console.log(web3.eth);
+    // console.log('this is my block yo: ', web3.eth.blockNumber)
+    console.log('this is my node yo: ', nodeUrl);
+    console.log('contract', contractAddress);
     let contractABI = getContractABI();
 
     // Get reference to your contract
@@ -39,23 +45,40 @@ interface IResponseObject {
 
     let count;
     try {
-        count = await getTransactionCountPromise(senderAddress, web3);
-        console.log(count);
+        count = await getTransactionCountPromise(senderAddress);
+        console.log('count is: ', count);
     } catch (e) { 
         console.log("Unable to getTransactionCount for senderAddress: ", senderAddress, "; error: ", e);
         return;
     }
+    let pendingCount;
+    try {
+        pendingCount = await getPendingTransactionCountPromise(senderAddress);
+        console.log('pending count is: ', pendingCount);
+    } catch (e) { 
+        console.log("Unable to getTransactionPendingCount for senderAddress: ", senderAddress, "; error: ", e);
+        return;
+    }
     let txnParams = {
-        nonce: count, gasPrice: '0x0', gasLimit: 5000000,
+        nonce: count, gasPrice: '0x0', gasLimit: 800000,
         to: contractAddress, value: 0, data: data
     }
 
     callback(null, createResponseObject(200, JSON.stringify(txnParams)));
   }
 
-  async function getTransactionCountPromise(from, web3){ 
+  async function getTransactionCountPromise(from){ 
       return new Promise(function(resolve, reject) {
           web3.eth.getTransactionCount(from, function(err, res) {
+              if(err) {console.log("Error found in getTransactionCountPromise is: ", err); reject(err) }
+              else {resolve(res) };
+          });
+      });
+  }
+
+  async function getPendingTransactionCountPromise(from){ 
+      return new Promise(function(resolve, reject) {
+          web3.eth.getTransactionCount(from, 'pending', function(err, res) {
               if(err) {console.log("Error found in getTransactionCountPromise is: ", err); reject(err) }
               else {resolve(res) };
           });
